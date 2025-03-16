@@ -4,7 +4,11 @@ class VoiceInputButton extends StatelessWidget {
   final VoidCallback onPressed;
   final bool isListening;
 
-  const VoiceInputButton({required this.onPressed, required this.isListening});
+  const VoiceInputButton({
+    super.key,
+    required this.onPressed,
+    required this.isListening,
+  });
 
   @override
   Widget build(BuildContext context) {
