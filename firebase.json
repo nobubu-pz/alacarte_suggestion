@@ -34,9 +34,19 @@
   },
   "functions": [
     {
-      "source": "alacarte-speechtotext",
-      "codebase": "alacarte-speechtotext",
-      "runtime": "python310",
+      "source": "alacarte-food-prediction",
+      "codebase": "alacarte-food-prediction",
+      "ignore": [
+        "venv",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ]
+    },
+    {
+      "source": "function_test_001",
+      "codebase": "function_test_001",
       "ignore": [
         "venv",
         ".git",

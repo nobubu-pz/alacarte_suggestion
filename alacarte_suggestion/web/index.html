@@ -18,21 +18,86 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="食材管理アシスタント">
+
+  <!-- Content Security Policy - 開発用に緩和 -->
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' data: gap: 'unsafe-eval' 'unsafe-inline' https: http:; script-src * 'self' 'unsafe-inline' 'unsafe-eval' https: http:; style-src * 'self' 'unsafe-inline' https: http:; font-src * 'self' data: https: http:; img-src * 'self' data: https: http:; connect-src * 'self' https: http: wss: ws:;">
+  
+  <!-- マイク使用の許可メタタグ -->
+  <meta name="microphone" content="enabled">
+
+  <!-- PWA関連設定 -->
+  <meta name="theme-color" content="#1976d2">
+  <meta name="mobile-web-app-capable" content="yes">
 
   <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="alacarte_suggestion">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <meta name="apple-mobile-web-app-title" content="食材管理アシスタント">
+  
+  <!-- アイコンをCDNから提供 -->
+  <link rel="icon" href="https://fonts.gstatic.com/s/i/materialicons/kitchen/v1/24px.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="https://fonts.gstatic.com/s/i/materialicons/kitchen/v1/24px.svg">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" href="https://fonts.gstatic.com/s/i/materialicons/kitchen/v1/24px.svg" type="image/svg+xml"/>
 
-  <title>alacarte_suggestion</title>
+  <title>食材管理アシスタント</title>
   <link rel="manifest" href="manifest.json">
+
+  <!-- Web Speech APIのためのマイク許可マーク -->
+  <meta name="speechapi" content="yes">
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+
+  <!-- Google Sign In Web用のスクリプト -->
+  <!-- 注: 実際のプロジェクトではこのクライアントIDを正しい値に置き換えてください -->
+  <meta name="google-signin-client_id" content="227096630545-v5oer4k0s9gdvv20vlhvg4jm54ltr3gv.apps.googleusercontent.com">
+
+  <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyC1pmgMI2_h5MXFnOtJQk1XrYLIrgMO7pQ",
+      authDomain: "a-la-carte-suggestions.firebaseapp.com",
+      databaseURL: "https://a-la-carte-suggestions-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "a-la-carte-suggestions",
+      storageBucket: "a-la-carte-suggestions.firebasestorage.app",
+      messagingSenderId: "227096630545",
+      appId: "1:227096630545:web:ff45a25f2596a8d75e28b0",
+      measurementId: "G-X3BZEZ4DMH"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    console.log('Firebase initialized in JavaScript');
+  </script>
+
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    var serviceWorkerVersion = null;
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
 </head>
 <body>
-  <script src="flutter_bootstrap.js" async></script>
+  <script>
+    window.addEventListener('load', function(ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
